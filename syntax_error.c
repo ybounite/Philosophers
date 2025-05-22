@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:20:31 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/21 14:42:55 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:01:29 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,36 @@ void	syntax_error(short option)
 		ft_putstre("Error: Invalid argument\n");
 	if (option == 3)
 		ft_putstre("Error: you need at least one philosopher\n");
+}
+
+bool	check_syntax_error(int arc, char **arv)
+{
+	int	i;
+
+	i = 1;
+	while (i < arc)
+	{
+		if (check_isdigit(arv[i]) || ft_isemtystr(arv[i]))
+			return (true);
+		i++;	
+	}
+	return (false);
+}
+
+bool	check_isdigit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (i == 0 && (str[0] == '+'|| str[0] == '-'))
+			i++;
+		if (!ft_isdigit(str[i]))
+			return (syntax_error(2), true);
+		i++;
+	}
+	if (i == false)
+		return (syntax_error(2), true);
+	return (false);
 }
