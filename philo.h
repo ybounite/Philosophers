@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/21 16:31:36 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:01:27 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,48 @@
 # define BLUE "\e[1;34m"
 # define WHITE "\e[1;37m"
 
-// typedef struct	s_list
-// {
-// 	void			*value;
-// 	struct s_list	*next;
-// }	t_list;
-
 typedef struct	s_data_philo
 {
-	int		number_of_philos;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		number_of_times_each_philos_must_eat;
-	bool	is_error;
-}			t_data_philo;
+	int					number_of_philos;
+	int					time_to_die;
+	int					time_to_eat;
+	int					time_to_sleep;
+	int					number_of_times_each_philos_must_eat;
+	bool				is_error;
+}						t_data_philo;
 
-int			ft_atoi(char *str);
-void		syntax_error(short option);
+typedef struct	s_philosopher
+{
+	int					id;
+	pthread_t			thread;
+	int					times_eaten;
+	long long			last_meal;
+	pthread_mutex_t		*left_fork;
+	pthread_mutex_t		*right_fork;
+	t_data_philo		*data;
+}						t_philosopher;
+
+/* ------------------------------------------------------------------------- */
+/*                            ft_utlis.c                                     */
+/* ------------------------------------------------------------------------- */
+bool					ft_isdigit(int c);
+int						ft_atoi(char *str);
+bool					ft_isemtystr(char *str);
+bool					ft_isemtystr(char *str);
+
+/* ------------------------------------------------------------------------- */
+/*                            parsing.c                                      */
+/* ------------------------------------------------------------------------- */
+bool					parsing(t_data_philo *t_data, int arc, char **arv);
+void					data_init(t_data_philo *t_data, int arc, char **arv);
+
+/* ------------------------------------------------------------------------- */
+/*                           syntax_error.c                                  */
+/* ------------------------------------------------------------------------- */
+void					ft_putstre(char *str);
+bool					check_isdigit(char *str);
+void					syntax_error(short option);
+bool					check_syntax_error(int arc, char **arv);
 
 
 #endif
