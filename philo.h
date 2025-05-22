@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/21 20:01:27 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/22 09:41:45 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ void					ft_putstre(char *str);
 bool					check_isdigit(char *str);
 void					syntax_error(short option);
 bool					check_syntax_error(int arc, char **arv);
-
 
 #endif
