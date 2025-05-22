@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/22 09:41:45 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/22 09:44:39 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct	s_philosopher
 /* ------------------------------------------------------------------------- */
 bool					ft_isdigit(int c);
 int						ft_atoi(char *str);
-bool					ft_isemtystr(char *str);
 bool					ft_isemtystr(char *str);
 
 /* ------------------------------------------------------------------------- */
