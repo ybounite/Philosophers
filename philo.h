@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/22 09:44:39 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/23 09:00:44 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <pthread.h>
 // for to create in child process 
 # include <sys/types.h>
+#include <sys/time.h>
 # include <sys/wait.h>
 # include "allocation_manager.h"
 
@@ -33,16 +34,8 @@
 # define BLUE "\e[1;34m"
 # define WHITE "\e[1;37m"
 
-typedef struct	s_data_philo
-{
-	int					number_of_philos;
-	int					time_to_die;
-	int					time_to_eat;
-	int					time_to_sleep;
-	int					number_of_times_each_philos_must_eat;
-	bool				is_error;
-}						t_data_philo;
-
+typedef struct s_data_philo t_data_philo;
+typedef struct s_philosopher t_philosopher;
 typedef struct	s_philosopher
 {
 	int					id;
@@ -53,6 +46,23 @@ typedef struct	s_philosopher
 	pthread_mutex_t		*right_fork;
 	t_data_philo		*data;
 }						t_philosopher;
+
+typedef struct	s_data_philo
+{
+	int					number_of_philos;
+	int					time_to_die;
+	int					time_to_eat;
+	int					time_to_sleep;
+	int					number_of_times_each_philos_must_eat;
+	bool				is_error;
+
+	long long			start_time;
+	pthread_mutex_t		*forks;
+	t_philosopher		*philos;
+	pthread_mutex_t		write_lock;
+	int					someone_died;
+}						t_data_philo;
+
 
 /* ------------------------------------------------------------------------- */
 /*                            ft_utlis.c                                     */
