@@ -1,11 +1,12 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=address
 NAME = philo
 RM = rm -f
 
-SRC = main.c\
-	  ft_atoi.c\
-	  syntax_error.c 
+SRC = main.c \
+	  ft_utlis.c \
+	  syntax_error.c \
+	  parsing.c
 
 OBJ = $(SRC:.c=.o)
 
