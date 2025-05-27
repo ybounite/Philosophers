@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/23 09:00:44 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/27 10:02:46 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <sys/types.h>
 #include <sys/time.h>
 # include <sys/wait.h>
-# include "allocation_manager.h"
 
 
 # define NC "\e[0m"
@@ -53,7 +52,7 @@ typedef struct	s_data_philo
 	int					time_to_die;
 	int					time_to_eat;
 	int					time_to_sleep;
-	int					number_of_times_each_philos_must_eat;
+	int					num_of_must_eat;
 	bool				is_error;
 
 	long long			start_time;
@@ -84,5 +83,10 @@ void					ft_putstre(char *str);
 bool					check_isdigit(char *str);
 void					syntax_error(short option);
 bool					check_syntax_error(int arc, char **arv);
+/* ------------------------------------------------------------------------- */
+/*                            timestamp.c                                    */
+/* ------------------------------------------------------------------------- */
+long long				get_time(void);
+void					print_action(t_philosopher *philo, const char *action);
 
 #endif
