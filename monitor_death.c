@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:05:57 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:04:49 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:31:33 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*monitor_death(void	*arg)
 	while (!data->someone_died)
 	{
 		i = 0;
-		while (i < data->number_of_philos)
+		while (i < data->num_philo)
 		{
 			if (get_time() - data->philos[i].last_meal > data->time_to_die)
 			{

@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:59:33 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:26:23 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:31:19 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	ft_create_pthread(t_data_philo *t_data)
 	int	i;
 
 	i = 0;
-	while (i < t_data->number_of_philos)
+	while (i < t_data->num_philo)
 	{
 		if (pthread_create(&t_data->philos[i].thread,
 				NULL, &philo_routine, &t_data->philos[i]) != 0)
@@ -37,7 +37,7 @@ bool	ft_joind_pthread(t_data_philo *data)
 	int	i;
 
 	i = 0;
-	while (i < data->number_of_philos)
+	while (i < data->num_philo)
 	{
 		if (pthread_join(data->philos[i].thread, NULL) != 0)
 		{
@@ -56,7 +56,7 @@ void	ft_destroy(t_data_philo *data)
 	short	i;
 
 	i = 0;
-	while (i < data->number_of_philos)
+	while (i < data->num_philo)
 		pthread_mutex_destroy(&data->forks[i++]);
 	// pthread_mutex_destroy(&data->write_lock);
 	free(data->forks);

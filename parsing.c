@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/27 20:31:34 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:31:19 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	data_init(t_data_philo *t_data, int arc, char **arv)
 {
-	t_data->number_of_philos = ft_atoi(arv[1]);
+	t_data->num_philo = ft_atoi(arv[1]);
 	t_data->time_to_die = ft_atoi(arv[2]);
 	t_data->time_to_eat = ft_atoi(arv[3]);
 	t_data->time_to_sleep = ft_atoi(arv[4]);
-	if (t_data->number_of_philos < 0 || t_data->time_to_die < 0
+	if (t_data->num_philo < 0 || t_data->time_to_die < 0
 		|| t_data->time_to_eat < 0 || t_data->time_to_sleep < 0)
 	{
 		syntax_error(2);
@@ -42,7 +42,7 @@ bool	parsing(t_data_philo *t_data, int arc, char **arv)
 	if (check_syntax_error(arc, arv))
 		return (t_data->is_error = true, false);
 	data_init(t_data, arc, arv);
-	if (t_data->number_of_philos == 0)
+	if (t_data->num_philo == 0)
 	{
 		t_data->is_error = true;
 		syntax_error(3);

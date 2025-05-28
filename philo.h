@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:11:46 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:29:28 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_philosopher
 
 typedef struct s_data_philo
 {
-	int					number_of_philos;
+	int					num_philo;
 	int					time_to_die;
 	int					time_to_eat;
 	int					time_to_sleep;
