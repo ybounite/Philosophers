@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:59:33 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:18:37 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:26:23 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,13 @@ bool	init_mutex(t_data_philo *data, pthread_t *monitor)
 	pthread_mutex_init(&data->times_eaten_mutex, NULL);
 	if (pthread_create(monitor, NULL, monitor_death, &data) != 0)
 		return (printf("FAILED TO CREATE MONITOR THREAD\n"), true);
+	return (false);
 }
 
 int	main(int arc, char **arv)
 {
 	t_data_philo	data;
-	pthread_t		monitor;
+	pthread_t		monitor = 0;
 
 	memset(&data, false, sizeof(data));
 	if (arc != 5 && arc != 6)

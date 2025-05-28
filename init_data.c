@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:41:51 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 14:54:17 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:27:02 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ bool	init_philosophers(t_data_philo *data)
 
 bool	init_data_philo(t_data_philo *data)
 {
-	if (init_forks(&data))
+	if (init_forks(data))
 		return (EXIT_FAILURE);
-	if (init_philosophers(&data))
+	if (init_philosophers(data))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
