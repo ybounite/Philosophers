@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:20:31 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/21 20:01:29 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:19:39 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	check_syntax_error(int arc, char **arv)
 	{
 		if (check_isdigit(arv[i]) || ft_isemtystr(arv[i]))
 			return (true);
-		i++;	
+		i++;
 	}
 	return (false);
 }
@@ -61,7 +61,7 @@ bool	check_isdigit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (i == 0 && (str[0] == '+'|| str[0] == '-'))
+		if (i == 0 && (str[0] == '+' || str[0] == '-'))
 			i++;
 		if (!ft_isdigit(str[i]))
 			return (syntax_error(2), true);
