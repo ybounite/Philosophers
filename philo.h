@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/27 10:02:46 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:11:46 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@
 # include <pthread.h>
 // for to create in child process 
 # include <sys/types.h>
-#include <sys/time.h>
+# include <sys/time.h>
 # include <sys/wait.h>
-
 
 # define NC "\e[0m"
 # define YELLOW "\e[1;33m"
@@ -32,10 +31,12 @@
 # define GREEN "\e[1;32m"
 # define BLUE "\e[1;34m"
 # define WHITE "\e[1;37m"
+# define PHILO_DONE_MSG "All philoscd has taking there meals\n"
 
-typedef struct s_data_philo t_data_philo;
-typedef struct s_philosopher t_philosopher;
-typedef struct	s_philosopher
+typedef struct s_data_philo		t_data_philo;
+typedef struct s_philosopher	t_philosopher;
+
+typedef struct s_philosopher
 {
 	int					id;
 	pthread_t			thread;
@@ -46,7 +47,7 @@ typedef struct	s_philosopher
 	t_data_philo		*data;
 }						t_philosopher;
 
-typedef struct	s_data_philo
+typedef struct s_data_philo
 {
 	int					number_of_philos;
 	int					time_to_die;
@@ -59,9 +60,11 @@ typedef struct	s_data_philo
 	pthread_mutex_t		*forks;
 	t_philosopher		*philos;
 	pthread_mutex_t		write_lock;
+	pthread_mutex_t		time;
+	pthread_mutex_t		death_mutex;
+	pthread_mutex_t		times_eaten_mutex;
 	int					someone_died;
 }						t_data_philo;
-
 
 /* ------------------------------------------------------------------------- */
 /*                            ft_utlis.c                                     */
@@ -84,9 +87,23 @@ bool					check_isdigit(char *str);
 void					syntax_error(short option);
 bool					check_syntax_error(int arc, char **arv);
 /* ------------------------------------------------------------------------- */
-/*                            timestamp.c                                    */
+/*                            get_time.c                                     */
 /* ------------------------------------------------------------------------- */
 long long				get_time(void);
+/* ------------------------------------------------------------------------- */
+/*                            philo_routine.c                                */
+/* ------------------------------------------------------------------------- */
+void					*philo_routine(void *arg);
 void					print_action(t_philosopher *philo, const char *action);
+void					*monitor_death(void	*arg);
+
+// monitor_death
+void					*monitor_death(void	*arg);
+/* ------------------------------------------------------------------------- */
+/*                            init_data.c                                    */
+/* ------------------------------------------------------------------------- */
+bool					init_forks(t_data_philo *data);
+bool					init_data_philo(t_data_philo *data);
+bool					init_philosophers(t_data_philo *data);
 
 #endif
