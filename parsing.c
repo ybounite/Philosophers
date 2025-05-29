@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:31:19 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/29 15:35:19 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,3 @@ bool	parsing(t_data_philo *t_data, int arc, char **arv)
 	}
 	return (true);
 }
-
-// t_mutex_	*ft_mutex_(void)
-// {
-// 	static t_mutex_	st_mutex_ = {PTHREAD_MUTEX_INITIALIZER};
-
-// 	return (&st_mutex_);
-// }
