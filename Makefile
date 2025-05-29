@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=thread -O1
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread -O1
 NAME = philo
 RM = rm -f
 
@@ -8,6 +8,7 @@ SRC = main.c \
 	  syntax_error.c \
 	  parsing.c \
 	  init_data.c \
+	  manager_thread.c \
 	  get_time.c \
 	  philo_routine.c \
 	  monitor_death.c
