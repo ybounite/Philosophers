@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:41:51 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 14:58:33 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/29 15:05:32 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ bool	init_mutex(t_data_philo *data)
 	if (pthread_mutex_init(&data->meal_lock, NULL) != 0)
 		return (printf("FILED TO INIT MUTEX\n"), true);
 	if (pthread_mutex_init(&data->death_lock, NULL) != 0)
-		return (printf("FILED TO INIT MUTEX\n"), true);
-	if (pthread_mutex_init(&data->times_eaten_lock, NULL) != 0)
 		return (printf("FILED TO INIT MUTEX\n"), true);
 	return (false);
 }
