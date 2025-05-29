@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:29:28 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/29 15:29:53 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ typedef struct s_philosopher
 {
 	int					id;
 	pthread_t			thread;
-	int					times_eaten;
+	int					meals_eaten;
 	long long			last_meal;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
+	pthread_mutex_t		meals_lock;
 	t_data_philo		*data;
 }						t_philosopher;
 
@@ -55,16 +56,23 @@ typedef struct s_data_philo
 	int					time_to_sleep;
 	int					num_of_must_eat;
 	bool				is_error;
+	bool				someone_died;
 
 	long long			start_time;
 	pthread_mutex_t		*forks;
 	t_philosopher		*philos;
 	pthread_mutex_t		write_lock;
-	pthread_mutex_t		time;
-	pthread_mutex_t		death_mutex;
-	pthread_mutex_t		times_eaten_mutex;
-	int					someone_died;
+	pthread_mutex_t		meal_lock;
+	pthread_mutex_t		death_lock;
 }						t_data_philo;
+
+typedef struct s_mutex_
+{
+	pthread_mutex_t		st_mutex_;
+	pthread_mutex_t		write_lock;
+	pthread_mutex_t		meal_lock;
+	pthread_mutex_t		death_lock;
+}	t_mutex_;
 
 /* ------------------------------------------------------------------------- */
 /*                            ft_utlis.c                                     */
@@ -90,6 +98,16 @@ bool					check_syntax_error(int arc, char **arv);
 /*                            get_time.c                                     */
 /* ------------------------------------------------------------------------- */
 long long				get_time(void);
+void					safe_usleep(t_philosopher *philo, long long time);
+
+/* ------------------------------------------------------------------------- */
+/*                            manager_thread.c                               */
+/* ------------------------------------------------------------------------- */
+bool					ft_joind_pthread(t_data_philo *data, pthread_t monitor);
+void					destroy_simulation_data(t_data_philo *data);
+bool					ft_create_pthread(t_data_philo *t_data,
+							pthread_t *monitor);
+
 /* ------------------------------------------------------------------------- */
 /*                            philo_routine.c                                */
 /* ------------------------------------------------------------------------- */
@@ -97,13 +115,19 @@ void					*philo_routine(void *arg);
 void					print_action(t_philosopher *philo, const char *action);
 void					*monitor_death(void	*arg);
 
-// monitor_death
+/* ------------------------------------------------------------------------- */
+/*                            monitor_death.c                                */
+/* ------------------------------------------------------------------------- */
 void					*monitor_death(void	*arg);
+void					print_new_time_to_died(t_data_philo *data);
+void					handle_philosopher_death(t_data_philo *data);
+
 /* ------------------------------------------------------------------------- */
 /*                            init_data.c                                    */
 /* ------------------------------------------------------------------------- */
 bool					init_forks(t_data_philo *data);
 bool					init_data_philo(t_data_philo *data);
 bool					init_philosophers(t_data_philo *data);
-
+bool					init_mutex(t_data_philo *data);
+t_mutex_				*ft_mutex_(void);
 #endif
