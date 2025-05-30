@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:09:00 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 15:33:02 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:04:16 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ void	destroy_simulation_data(t_data_philo *data)
 	i = 0;
 	while (i < data->num_philo)
 		pthread_mutex_destroy(&data->forks[i++]);
-	pthread_mutex_destroy(&data->write_lock);
-	pthread_mutex_destroy(&data->meal_lock);
-	pthread_mutex_destroy(&data->death_lock);
 	free(data->forks);
 	free(data->philos);
 }
