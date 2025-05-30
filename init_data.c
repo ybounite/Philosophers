@@ -12,6 +12,16 @@
 
 #include "philo.h"
 
+t_mutex_	*ft_mutex_(void)
+{
+	static t_mutex_	_mutex_ = {PTHREAD_MUTEX_INITIALIZER,
+		PTHREAD_MUTEX_INITIALIZER,
+		PTHREAD_MUTEX_INITIALIZER,
+		PTHREAD_MUTEX_INITIALIZER};
+
+	return (&_mutex_);
+}
+
 bool	init_forks(t_data_philo *data)
 {
 	int	i;
