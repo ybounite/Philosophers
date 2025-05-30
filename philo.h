@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 15:29:53 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:00:51 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,11 @@ bool					init_data_philo(t_data_philo *data);
 bool					init_philosophers(t_data_philo *data);
 bool					init_mutex(t_data_philo *data);
 t_mutex_				*ft_mutex_(void);
+/* ------------------------------------------------------------------------- */
+/*                            eating_process.c                               */
+/* ------------------------------------------------------------------------- */
+void					eat_philo(t_philosopher	*philo);
+bool					check_death(t_philosopher *philo);
+void					manager_eating(t_philosopher *philo);
+
 #endif
