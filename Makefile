@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread -O1
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=thread -O1
 NAME = philo
 RM = rm -f
 
@@ -11,6 +11,7 @@ SRC = main.c \
 	  manager_thread.c \
 	  get_time.c \
 	  philo_routine.c \
+	  eating_process.c \
 	  monitor_death.c
 
 OBJ = $(SRC:.c=.o)
