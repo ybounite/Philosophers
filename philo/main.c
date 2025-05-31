@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:59:33 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 15:16:13 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:06:25 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int arc, char **arv)
 	t_data_philo	data;
 	pthread_t		monitor;
 
-	memset(&data, false, sizeof(data));
+	memset(&data, false, sizeof(t_data_philo));
 	if (arc != 5 && arc != 6)
 		return (syntax_error(1), EXIT_FAILURE);
 	parsing(&data, arc, arv);
