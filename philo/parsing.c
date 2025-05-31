@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 15:35:19 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/05/31 10:27:12 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool	parsing(t_data_philo *t_data, int arc, char **arv)
 	if (t_data->num_philo == 0)
 	{
 		t_data->is_error = true;
-		syntax_error(3);
+		return (syntax_error(3), false);
 	}
 	return (true);
 }
