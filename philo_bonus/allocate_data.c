@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 13:07:38 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/31 10:55:11 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/01 09:31:28 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ void	*ft_malloc(size_t size, short option)
 	{
 		ptr = malloc(size);
 		if (!ptr)
+		{
+			printf("allocation fail\n");
 			return (memory_released(&head), exit(EXIT_FAILURE), NULL);
+		}
 		new = ft_lstnew(ptr);
 		if (!new)
 			return (memory_released(&head), exit(EXIT_FAILURE), NULL);
