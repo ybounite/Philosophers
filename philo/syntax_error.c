@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:20:31 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/28 15:19:39 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/01 17:12:36 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	syntax_error(short option)
 		ft_putstre("\tOPTIONAL:\tnumber_of_times_each_philosopher_must_eat\n");
 	}
 	if (option == 2)
-		ft_putstre("Error: Invalid argument\n");
+		ft_putstre(RED"Error\e[0m:\nInvalid argument\n");
 	if (option == 3)
-		ft_putstre("Error: you need at least one philosopher\n");
+		ft_putstre(RED"Error\e[0m:\nyou need at least one philosopher\n");
 }
 
 bool	check_syntax_error(int arc, char **arv)
