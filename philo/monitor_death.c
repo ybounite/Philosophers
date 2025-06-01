@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:05:57 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/30 09:56:06 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/01 08:20:13 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool	meals_checker(t_data_philo *data)
 	{
 		if (data->philos->meals_eaten == data->num_of_must_eat)
 		{
-			printf("all philo is eating \n");
+			printf("%sAll philosophers must eat all their meals\n", GREEN);
 			pthread_mutex_lock(&data->death_lock);
 			data->someone_died = true;
 			pthread_mutex_unlock(&data->death_lock);
