@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/31 10:27:12 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/01 17:08:59 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ bool	parsing(t_data_philo *t_data, int arc, char **arv)
 	{
 		t_data->is_error = true;
 		return (syntax_error(3), false);
+	}
+	if (t_data->time_to_die == 0 || t_data->time_to_eat == 0
+		|| t_data->time_to_sleep == 0)
+	{
+		(t_data->is_error = true);
+		return (ft_putstre(RED"0 : should be more than zero"NC), false);
 	}
 	return (true);
 }
