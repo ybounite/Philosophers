@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 19:54:58 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/29 16:00:51 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:38:05 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void					*monitor_death(void	*arg);
 void					*monitor_death(void	*arg);
 void					print_new_time_to_died(t_data_philo *data);
 void					handle_philosopher_death(t_data_philo *data);
+bool					check_someone_died(t_data_philo *data);
 
 /* ------------------------------------------------------------------------- */
 /*                            init_data.c                                    */

@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:59:33 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/31 11:06:25 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:00:17 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 int	main(int arc, char **arv)
 {

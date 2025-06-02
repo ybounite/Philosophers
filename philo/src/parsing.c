@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/01 17:08:59 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:00:17 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 void	data_init(t_data_philo *t_data, int arc, char **arv)
 {

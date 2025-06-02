@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:02:44 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/30 09:19:19 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:00:17 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 void	print_action(t_philosopher *philo, const char *action)
 {
@@ -32,7 +32,6 @@ void	sleep_philo(t_philosopher *philo)
 {
 	print_action(philo, "is sleeping");
 	safe_usleep(philo, philo->data->time_to_sleep);
-
 }
 
 void	*philo_routine(void *arg)

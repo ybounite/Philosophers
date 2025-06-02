@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:53:33 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/26 14:10:36 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:00:17 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 bool	ft_isdigit(int c)
 {

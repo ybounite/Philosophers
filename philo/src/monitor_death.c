@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:05:57 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/01 08:20:13 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:00:17 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 void	print_new_time_to_died(t_data_philo *data)
 {
@@ -49,6 +49,15 @@ bool	meals_checker(t_data_philo *data)
 	return (false);
 }
 
+bool	check_someone_died(t_data_philo *data)
+{
+	pthread_mutex_lock(&data->death_lock);
+	if (data->someone_died)
+		return (true);
+	pthread_mutex_unlock(&data->death_lock);
+	return (false);
+}
+
 void	*monitor_death(void	*arg)
 {
 	t_data_philo (*data);
@@ -56,10 +65,8 @@ void	*monitor_death(void	*arg)
 	data = (t_data_philo *)arg;
 	while (true)
 	{
-		pthread_mutex_lock(&data->death_lock);
-		if (data->someone_died)
+		if (check_someone_died(data))
 			return (NULL);
-		pthread_mutex_unlock(&data->death_lock);
 		if (meals_checker(data))
 			return (NULL);
 		i = 0;
