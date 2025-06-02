@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:18:22 by ybounite          #+#    #+#             */
-/*   Updated: 2025/05/31 14:35:18 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/01 18:59:24 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <semaphore.h>
 # include "../includes/allocation_manager.h"
 # include <sys/wait.h>
-
+# include <signal.h>
 
 # define NC "\e[0m"
 # define YELLOW "\e[1;33m"
@@ -34,22 +34,10 @@
 # define BLUE "\e[1;34m"
 # define WHITE "\e[1;37m"
 # define PHILO_DONE_MSG "All philoscd has taking there meals\n"
+# define ALLOC 1
+# define CLEAR 0
 
-typedef struct s_data_philo		t_data_philo;
-typedef struct s_philosopher	t_philosopher;
-
-typedef struct s_philosopher
-{
-	int					id;
-	pthread_t			thread;
-	int					meals_eaten;
-	long long			last_meal;
-	sem_t				*forks;
-	sem_t				*print;
-	t_data_philo		*data;
-}						t_philosopher;
-
-typedef struct s_data_philo
+typedef struct s_data_
 {
 	int					num_philo;
 	int					time_to_die;
@@ -59,11 +47,24 @@ typedef struct s_data_philo
 	bool				is_error;
 	bool				someone_died;
 	long long			start_time;
-	sem_t				*is_died;
-	sem_t				*forks;
-	sem_t				*print;
-	t_philosopher		*philos;
-}						t_data_philo;
+	sem_t				*sm_forks;
+	sem_t				*sm_print;
+	sem_t				*sm_meals;
+	sem_t				*if_dead;
+	sem_t				*sm_dead;
+	struct s_philo		*philos;
+}						t_data_;
+
+typedef struct s_philo
+{
+	int					id;
+	pid_t				pid;
+	int					meals_eaten;
+	long long			last_meal;
+	bool				is_alive;
+	sem_t				*sm_is_dead;
+	t_data_				*data;
+}						t_philosopher;
 
 /* ------------------------------------------------------------------------- */
 /*                            ft_utlis.c                                     */
@@ -74,8 +75,8 @@ bool					ft_isemtystr(char *str);
 /* ------------------------------------------------------------------------- */
 /*                            parsing.c                                      */
 /* ------------------------------------------------------------------------- */
-bool					parsing(t_data_philo *t_data, int arc, char **arv);
-void					data_init(t_data_philo *t_data, int arc, char **arv);
+t_data_					*parsing(int arc, char **arv);
+void					data_init(t_data_ *t_data, int arc, char **arv);
 
 /* ------------------------------------------------------------------------- */
 /*                           syntax_error.c                                  */
@@ -89,7 +90,27 @@ bool					check_syntax_error(int arc, char **arv);
 /* ------------------------------------------------------------------------- */
 long long				get_time(void);
 void					safe_usleep(t_philosopher *philo, long long time);
+/* ------------------------------------------------------------------------- */
+/*                            init_data.c                                    */
+/* ------------------------------------------------------------------------- */
+bool					init_simulation_data(t_data_ *data);
+void					destroy_close_(t_data_ *data);
+/* ------------------------------------------------------------------------- */
+/*                            philo_routine.c                                */
+/* ------------------------------------------------------------------------- */
+void					routine_philosopher(t_philosopher *philo);
+void					philo_sleep(t_philosopher *philo);
+void					philo_think(t_philosopher *philo);
 
-bool					init_data_philo(t_data_philo *data);
+/* ------------------------------------------------------------------------- */
+/*                            monutor_death.c                                */
+/* ------------------------------------------------------------------------- */
+void					*monitor_death(void	*args);
+int						check_death(t_philosopher *philo);
+
+void					print_action(t_philosopher *philo, char *messag);
+void					philo_eat(t_philosopher *philo);
+
+
 
 #endif
