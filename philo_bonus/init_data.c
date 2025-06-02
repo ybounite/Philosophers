@@ -6,18 +6,22 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:38:23 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/01 15:48:55 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 13:32:27 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo_bonus.h"
 
+t_mutex_	*ft_sem_(void)
+{
+	static t_mutex_	_mutex_ = {0};
+
+	return (&_mutex_);
+}
+
 bool	init_semaphores(t_data_ *data)
 {
-	sem_unlink("sem_forks");
-	sem_unlink("sem_print");
-	sem_unlink("sem_meals");
-	sem_unlink("sem_dead");
+	ft_sem_unlink();
 	data->sm_forks = sem_open("sem_forks", O_CREAT, 0644, data->num_philo);
 	if (data->sm_forks == SEM_FAILED)
 		return (ft_putstre("Error creating forks semaphore\n"), false);
@@ -27,9 +31,15 @@ bool	init_semaphores(t_data_ *data)
 	data->sm_meals = sem_open("sem_meals", O_CREAT, 0644, 1);
 	if (data->sm_meals == SEM_FAILED)
 		return (ft_putstre("Error creating ms_meals\n"), false);
-	data->sm_dead = sem_open("sem_dead", O_CREAT, 0644, 1);
+	data->sm_dead = sem_open("sem_dead", O_CREAT, 0644, 2);
 	if (data->sm_dead == SEM_FAILED)
 		return (ft_putstre("Error creating ms_dead\n"), false);
+	data->if_dead = sem_open("if_dead", O_CREAT, 0644, 1);
+	if (data->if_dead == SEM_FAILED)
+		return (ft_putstre("Error creating print semaphore\n"), false);
+	ft_sem_()->sm_meals_eat = sem_open("sm_meals_eat", O_CREAT, 0644, 1);
+	if (ft_sem_()->sm_meals_eat == SEM_FAILED)
+		return (ft_putstre(RED"Error sem meals eat\n"NC), false);
 	return (true);
 }
 
@@ -48,23 +58,6 @@ bool	init_philosophers(t_data_ *data)
 		i++;
 	}
 	return (false);
-}
-
-void	destroy_close_(t_data_ *data)
-{
-	if (data->sm_forks)
-		sem_close(data->sm_forks);
-	if (data->sm_dead)
-		sem_close(data->sm_dead);
-	if (data->sm_meals)
-		sem_close(data->sm_meals);
-	if (data->sm_print)
-		sem_close(data->sm_print);
-	sem_unlink("sem_forks");
-	sem_unlink("sem_print");
-	sem_unlink("sem_meals");
-	sem_unlink("sem_dead");
-	ft_malloc(CLEAR, CLEAR);
 }
 
 bool	init_simulation_data(t_data_ *data)
