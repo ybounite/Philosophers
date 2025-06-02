@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:18:22 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/01 18:59:24 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:45:24 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define GREEN "\e[1;32m"
 # define BLUE "\e[1;34m"
 # define WHITE "\e[1;37m"
-# define PHILO_DONE_MSG "All philoscd has taking there meals\n"
+# define PHILO_DONE_MSG "\e[1;32mAll philosophers has taking there meals\n"
 # define ALLOC 1
 # define CLEAR 0
 
@@ -45,7 +45,6 @@ typedef struct s_data_
 	int					time_to_sleep;
 	int					num_of_must_eat;
 	bool				is_error;
-	bool				someone_died;
 	long long			start_time;
 	sem_t				*sm_forks;
 	sem_t				*sm_print;
@@ -66,6 +65,12 @@ typedef struct s_philo
 	t_data_				*data;
 }						t_philosopher;
 
+typedef struct st_mutex_
+{
+	sem_t	*sm_meals_eat;
+}	t_mutex_;
+
+
 /* ------------------------------------------------------------------------- */
 /*                            ft_utlis.c                                     */
 /* ------------------------------------------------------------------------- */
@@ -77,7 +82,6 @@ bool					ft_isemtystr(char *str);
 /* ------------------------------------------------------------------------- */
 t_data_					*parsing(int arc, char **arv);
 void					data_init(t_data_ *t_data, int arc, char **arv);
-
 /* ------------------------------------------------------------------------- */
 /*                           syntax_error.c                                  */
 /* ------------------------------------------------------------------------- */
@@ -94,23 +98,34 @@ void					safe_usleep(t_philosopher *philo, long long time);
 /*                            init_data.c                                    */
 /* ------------------------------------------------------------------------- */
 bool					init_simulation_data(t_data_ *data);
-void					destroy_close_(t_data_ *data);
+bool					init_semaphores(t_data_ *data);
+bool					init_philosophers(t_data_ *data);
+t_mutex_				*ft_sem_(void);
+/* ------------------------------------------------------------------------- */
+/*                            start_simulation.c                             */
+/* ------------------------------------------------------------------------- */
+bool					start_simulation(t_data_ *data);
+bool					wait_child_process(pid_t *pids, t_data_ *data);
 /* ------------------------------------------------------------------------- */
 /*                            philo_routine.c                                */
 /* ------------------------------------------------------------------------- */
 void					routine_philosopher(t_philosopher *philo);
 void					philo_sleep(t_philosopher *philo);
 void					philo_think(t_philosopher *philo);
-
 /* ------------------------------------------------------------------------- */
 /*                            monutor_death.c                                */
 /* ------------------------------------------------------------------------- */
 void					*monitor_death(void	*args);
 int						check_death(t_philosopher *philo);
-
-void					print_action(t_philosopher *philo, char *messag);
+/* ------------------------------------------------------------------------- */
+/*                            eating_process.c                               */
+/* ------------------------------------------------------------------------- */
 void					philo_eat(t_philosopher *philo);
-
-
+void					print_action(t_philosopher *philo, char *messag);
+/* ------------------------------------------------------------------------- */
+/*                            destroy.c                                      */
+/* ------------------------------------------------------------------------- */
+void					destroy_close_(t_data_ *data);
+void					ft_sem_unlink(void);
 
 #endif
