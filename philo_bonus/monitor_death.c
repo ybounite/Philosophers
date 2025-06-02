@@ -6,7 +6,7 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 14:47:40 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 14:11:18 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:57:21 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_death(t_philosopher *philo)
 
 void	*monitor_death(void	*args)
 {
-	t_philosopher *philo;
+	t_philosopher	*philo;
 
 	philo = (t_philosopher *)args;
 	while (true)
