@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:36:48 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 14:56:56 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:20:48 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo_bonus.h"
+#include "../includes/philo_bonus.h"
 
 bool	wait_child_process(pid_t *pids, t_data_ *data)
 {

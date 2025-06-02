@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:51:28 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 11:19:51 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:20:48 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo_bonus.h"
+#include "../includes/philo_bonus.h"
 
 void	data_init(t_data_ *t_data, int arc, char **arv)
 {

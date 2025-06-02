@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 18:47:49 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 14:36:24 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:20:48 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo_bonus.h"
+#include "../includes/philo_bonus.h"
 
 void	philo_think(t_philosopher *philo)
 {

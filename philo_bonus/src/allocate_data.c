@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 13:07:38 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 14:53:32 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:19:44 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/allocation_manager.h"
+#include "../includes/allocation_manager.h"
 
 t_list	*ft_lstnew(void *content)
 {

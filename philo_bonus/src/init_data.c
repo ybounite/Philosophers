@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:38:23 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/02 13:32:27 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:20:48 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo_bonus.h"
+#include "../includes/philo_bonus.h"
 
 t_mutex_	*ft_sem_(void)
 {

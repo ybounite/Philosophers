@@ -6,11 +6,11 @@
 /*   By: ybounite <ybounite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:04:25 by ybounite          #+#    #+#             */
-/*   Updated: 2025/06/01 16:49:06 by ybounite         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:19:44 by ybounite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo_bonus.h"
+#include "../includes/philo_bonus.h"
 
 long long	get_time(void)
 {

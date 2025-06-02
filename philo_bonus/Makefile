@@ -1,7 +1,10 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = philo_bonus
-RM = rm -f
+RM = rm -rf
+
+SRC_DIR = src/
+OBJ_DIR = obj/
 
 SRC =  src/philo_bonus.c \
 	  src/allocate_data.c\
@@ -16,17 +19,22 @@ SRC =  src/philo_bonus.c \
 	  src/monitor_death.c\
 	  src/destroy.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@$(RM) $(OBJ_DIR)
 
 re: fclean all
