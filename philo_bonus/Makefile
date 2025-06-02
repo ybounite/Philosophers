@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 #-lpthread -lrt
+CFLAGS = -Wall -Wextra -Werror
 NAME = philo_bonus
 RM = rm -f
 
@@ -9,12 +9,12 @@ SRC =  philo_bonus.c \
 	  syntax_error.c \
 	  parsing.c \
 	  init_data.c \
+	  start_simulation.c \
 	  get_time.c \
-	#   init_data.c \
-	#   manager_thread.c \
-	#   philo_routine.c \
-	#   eating_process.c \
-	#   monitor_death.c
+	  philo_routine.c \
+	  eating_process.c \
+	  monitor_death.c\
+	  destroy.c
 
 OBJ = $(SRC:.c=.o)
 
