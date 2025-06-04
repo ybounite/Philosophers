@@ -27,7 +27,7 @@
 > For this project, we must learn about concurrent programming and shared memory synconization.
 
 
-For detailed information, refer to the [**subject of this project**](README_files/philo_subject.pdf).
+For detailed information, refer to the [**subject of this project**](README_files/subject.pdf).
 
 	🚀 TLDR: This project is an introduction to the basics of multithreading and multiprocessing.
     	 Work on the same memory space, learn about mutexes, semaphores, and shared memory.
