@@ -1,6 +1,6 @@
 <div align="center">
   <!-- Project Image -->
-  <img src="README_files/your_image_name.png" alt="Dining Philosophers" width="500"/>
+  <img src="README_files/logo.png" alt="Dining Philosophers" width="500"/>
   
   <!-- Project Title -->
   <h1>Philosophers Project</h1>
@@ -32,7 +32,7 @@ For detailed information, refer to the [**subject of this project**](README_file
 
 	🚀 TLDR: This project is an introduction to the basics of multithreading and multiprocessing.
     	 Work on the same memory space, learn about mutexes, semaphores, and shared memory.
-> [!NOTE]  
+> [🚨 ​!NOTE] \
 > Because of 42 School norm requirements:
 > * Each function can't have more than 25 lines of code.
 > * All variables are declared and aligned at the top of each function.
@@ -50,3 +50,24 @@ For detailed information, refer to the [**subject of this project**](README_file
 * If a philosopher hasn't eaten in a certain timeframe, he will die of starvation.
 * Philosophers cannot communicate with each other.
 
+
+#### The program takes the following arguments:
+
+`./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep>
+[number_of_times_each_philosopher_must_eat]`
+
+* **```number_of_philosophers```**: the number of philosophers around the table.
+* **```time_to_die```**: a number representing the time in milliseconds a philosopher has to live after a meal. If a philosopher hasn’t started eating time_to_die milliseconds after the beginning of his last meal or the beginning of the simulation, he will die.
+* **```time_to_eat```**: a number representing the time in milliseconds a philosopher takes to finish his meal. During that time, the philosopher keeps his two forks in hand.
+* **```time_to_sleep```**: the time in milliseconds that a philosopher spends sleeping.
+* **```number_of_times_each_philosopher_must_eat```**: an optional argument that allows the program to stop if all the philosophers have eaten at least that many times. If this argument is not specified, the simulation carries on unless a philosopher dies.
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/7783cfa4-fd5e-4024-94c2-686b14f92875">
+</p>
+
+#### Program logs philosophers actions in this format. X is philosopher ID:
+
+```
+
+```
