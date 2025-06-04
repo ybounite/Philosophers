@@ -1,6 +1,6 @@
 <div align="center">
   <!-- Project Image -->
-  <img src="README_files/logo.png" alt="Dining Philosophers" width="500"/>
+  <img src="README_files/logo.png" alt="Logo" width="80" height="80"/>
   
   <!-- Project Title -->
   <h1>Philosophers Project</h1>
