@@ -76,4 +76,6 @@ timestamp_in_ms     X  has taken a fork :
         60          1  has taken a fork
         60          1  is eating
 ```
-https://github.com/user-attachments/assets/7783cfa4-fd5e-4024-94c2-686b14f92875
+
+![Image](https://github.com/user-attachments/assets/f4ba8f8f-c34c-4ae3-949d-a5267bb503ef)
+
