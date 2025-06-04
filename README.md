@@ -62,12 +62,18 @@ For detailed information, refer to the [**subject of this project**](README_file
 * **```time_to_sleep```**: the time in milliseconds that a philosopher spends sleeping.
 * **```number_of_times_each_philosopher_must_eat```**: an optional argument that allows the program to stop if all the philosophers have eaten at least that many times. If this argument is not specified, the simulation carries on unless a philosopher dies.
 
-<p align="center">
-    <img src="https://github.com/user-attachments/assets/7783cfa4-fd5e-4024-94c2-686b14f92875">
-</p>
+
 
 #### Program logs philosophers actions in this format. X is philosopher ID:
 
 ```
-
+timestamp_in_ms     X  has taken a fork :
+        0           1  is thinking
+        0           2  is thinking
+        0           2  has taken a fork
+        0           2  is eating
+        60          2  is sleeping
+        60          1  has taken a fork
+        60          1  is eating
 ```
+https://github.com/user-attachments/assets/7783cfa4-fd5e-4024-94c2-686b14f92875
