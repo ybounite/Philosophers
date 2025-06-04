@@ -1,32 +1,26 @@
-<a name="readme-top"></a>
-<div aling="center">
-  <!-- logo-->
-  <a href="https://github.com/ybounite/Philosophers">
-  <img src="README_files/logo.png" alt="Logo" width="80" height="80">
-  </a>
- 
-  <!-- Project Name -->
-  <h1>Philosophers Project</h1>
+<div align="center">
+  <!-- Project Image -->
+  <img src="README_files/your_image_name.png" alt="Dining Philosophers" width="500"/>
   
-  <!-- Short Description -->
+  <!-- Project Title -->
+  <h1>Philosophers Project</h1>
+
   <!-- Badges -->
   <p>
-  <img src="https://img.shields.io/badge/score-108%20%2F%20100-success?style=for-the-badge" />
-  <img src="https://img.shields.io/github/repo-size/ybounite/Philosophers?style=for-the-badge&logo=github" />
-  <img src="https://img.shields.io/github/languages/count/ybounite/Philosophers?style=for-the-badge&logo=" />
-  <img src="https://img.shields.io/github/last-commit/ybounite/Philosophers?style=for-the-badge">
-  <img src=>
+    <img src="https://img.shields.io/badge/score-108%20%2F%20100-success?style=for-the-badge" />
+    <img src="https://img.shields.io/github/repo-size/ybounite/Philosophers?style=for-the-badge&logo=github" />
+    <img src="https://img.shields.io/github/languages/count/ybounite/Philosophers?style=for-the-badge" />
+    <img src="https://img.shields.io/github/last-commit/ybounite/Philosophers?style=for-the-badge" />
   </p>
+
   <h3>
-       <a href="#-about-project"> 📜 About Project</a>
-    <span> . </span>
-      <a href="#-mandatory-part">🔷 Mandatory Part</a>
-    <span> . </span>
-      <a href="#-bonus-part">🌟 Bonus Part</a>
-    <span> . </span>
-      <a herf="#usage"> 👨‍💻 Usage</a>
+    <a href="#-about-project">📜 About Project</a> .
+    <a href="#-mandatory-part">🔷 Mandatory Part</a> .
+    <a href="#-bonus-part">🌟 Bonus Part</a> .
+    <a href="#usage">👨‍💻 Usage</a>
   </h3>
 </div>
+
 
 ---
   ## 📜 About Project
